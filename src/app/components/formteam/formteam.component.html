@@ -1,1 +1,54 @@
-<p>formteam works!</p>
+<div class="container">
+    <div class="row">
+    <form #f="ngForm">
+
+
+        <div class="mb-3">
+            <label>name :</label>
+            <input type="text" class="form-control" name="name" [(ngModel)] ="team.name" required minlength="3" #name="ngModel" >
+            Invalid : {{name.invalid}}<br>
+            Touched : {{name.touched}}<br>
+            Dirty : {{name.dirty}}<br>
+            <div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert alert-danger">
+                <div *ngIf="name.errors!['required']"> name is required !</div>
+                <div *ngIf="name.errors!['minlength']">name must have at least 3 charachters</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label >projectName :</label>
+            <input type="text" class="form-control" name="projectName" [(ngModel)] ="team.projectName" required minlength="10" #projectName="ngModel">
+
+            <div *ngIf="projectName.invalid && (projectName.touched || projectName.dirty)" class="alert alert-danger">
+                <div *ngIf="projectName.errors!['required']"> projectName is required !</div>
+                <div *ngIf="projectName.errors!['minlength']">projectName must have at least 10 charachters</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label >level :</label>
+            <input type="text" class="form-control" name="level" [(ngModel)] ="team.level" required minlength="10" #level="ngModel">
+
+            <div *ngIf="level.invalid && (level.touched || level.dirty)" class="alert alert-danger">
+                <div *ngIf="level.errors!['required']"> level is required !</div>
+                <div *ngIf="level.errors!['minlength']">level must have at least 10 charachters</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label >projectDescription :</label>
+            <input type="text" class="form-control" name="projectDescription" [(ngModel)] ="team.projectDescription" required minlength="10" #projectDescription="ngModel">
+
+            <div *ngIf="projectDescription.invalid && (projectDescription.touched || projectDescription.dirty)" class="alert alert-danger">
+                <div *ngIf="projectDescription.errors!['required']"> projectDescription is required !</div>
+                <div *ngIf="projectDescription.errors!['minlength']">projectDescription must have at least 10 charachters</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Submit" (click)="add(f,name)" [disabled]="f.invalid">
+        </div>
+    </form>
+    </div>
+</div>
+

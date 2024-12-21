@@ -12,6 +12,7 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { FormteamComponent } from './components/formteam/formteam.component';
 import { MyteamsComponent } from './components/myteams/myteams.component';
 import { ParticipantsComponent } from './components/participants/participants.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ParticipantsComponent } from './components/participants/participants.co
     BrowserModule,
     AppRoutingModule,
     TeamModule,
-    ParticipantModule
+    ParticipantModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
